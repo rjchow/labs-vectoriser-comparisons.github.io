@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vectorization Results - serene-blueprint</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 10px;
+            background: #f5f5f5;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+        .variant {
+            background: white;
+            border-radius: 6px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.2s;
+            cursor: pointer;
+        }
+        .variant:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+        .image-container {
+            height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+            background: #fafafa;
+            border-bottom: 1px solid #eee;
+        }
+        .image-container img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        .info {
+            padding: 10px 12px;
+        }
+        .variant-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 6px;
+        }
+        .details {
+            color: #666;
+            font-size: 13px;
+            line-height: 1.4;
+        }
+        .stat {
+            margin: 2px 0;
+        }
+        
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            cursor: pointer;
+        }
+        .modal-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .comparison-container {
+            display: flex;
+            gap: 20px;
+            max-width: 100%;
+            max-height: 100%;
+        }
+        .comparison-image {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 48%;
+        }
+        .comparison-image img {
+            max-width: 100%;
+            max-height: calc(100vh - 120px);
+            object-fit: contain;
+            background: white;
+            border-radius: 4px;
+        }
+        .comparison-label {
+            color: white;
+            font-size: 18px;
+            font-weight: 600;
+            margin-top: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Vectorization Results: serene-blueprint</h1>
+    
+    <div class="grid">
+        
+        <div class="variant" onclick="showComparison('original.png', 'original')" data-index="0">
+            <div class="image-container">
+                <img src="original.png" alt="original" />
+            </div>
+            <div class="info">
+                <div class="variant-name">ORIGINAL</div>
+                <div class="details">
+                    <div class="stat">1867.44 KB</div>
+                    <div class="stat">0.00s</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="variant" onclick="showComparison('png-v2.png', 'png-v2')" data-index="1">
+            <div class="image-container">
+                <img src="png-v2.png" alt="png-v2" />
+            </div>
+            <div class="info">
+                <div class="variant-name">PNG-V2</div>
+                <div class="details">
+                    <div class="stat">237.42 KB</div>
+                    <div class="stat">0.53s</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="variant" onclick="showComparison('svg-v2.svg', 'svg-v2')" data-index="2">
+            <div class="image-container">
+                <img src="svg-v2.svg" alt="svg-v2" />
+            </div>
+            <div class="info">
+                <div class="variant-name">SVG-V2</div>
+                <div class="details">
+                    <div class="stat">17976.48 KB</div>
+                    <div class="stat">6.98s</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="variant" onclick="showComparison('svg-v3.svg', 'svg-v3')" data-index="3">
+            <div class="image-container">
+                <img src="svg-v3.svg" alt="svg-v3" />
+            </div>
+            <div class="info">
+                <div class="variant-name">SVG-V3</div>
+                <div class="details">
+                    <div class="stat">7818.12 KB</div>
+                    <div class="stat">5.38s</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="variant" onclick="showComparison('svg-v4.svg', 'svg-v4')" data-index="4">
+            <div class="image-container">
+                <img src="svg-v4.svg" alt="svg-v4" />
+            </div>
+            <div class="info">
+                <div class="variant-name">SVG-V4</div>
+                <div class="details">
+                    <div class="stat">4432.63 KB</div>
+                    <div class="stat">4.49s</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="variant" onclick="showComparison('svg-v5.svg', 'svg-v5')" data-index="5">
+            <div class="image-container">
+                <img src="svg-v5.svg" alt="svg-v5" />
+            </div>
+            <div class="info">
+                <div class="variant-name">SVG-V5</div>
+                <div class="details">
+                    <div class="stat">26649.31 KB</div>
+                    <div class="stat">56.66s</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="variant" onclick="showComparison('svg-v6.svg', 'svg-v6')" data-index="6">
+            <div class="image-container">
+                <img src="svg-v6.svg" alt="svg-v6" />
+            </div>
+            <div class="info">
+                <div class="variant-name">SVG-V6</div>
+                <div class="details">
+                    <div class="stat">17186.53 KB</div>
+                    <div class="stat">35.93s</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="variant" onclick="showComparison('svg-v7.svg', 'svg-v7')" data-index="7">
+            <div class="image-container">
+                <img src="svg-v7.svg" alt="svg-v7" />
+            </div>
+            <div class="info">
+                <div class="variant-name">SVG-V7</div>
+                <div class="details">
+                    <div class="stat">27.99 KB</div>
+                    <div class="stat">0.52s</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="variant" onclick="showComparison('svg-v8.svg', 'svg-v8')" data-index="8">
+            <div class="image-container">
+                <img src="svg-v8.svg" alt="svg-v8" />
+            </div>
+            <div class="info">
+                <div class="variant-name">SVG-V8</div>
+                <div class="details">
+                    <div class="stat">14.85 KB</div>
+                    <div class="stat">0.10s</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="variant" onclick="showComparison('svg-v9.svg', 'svg-v9')" data-index="9">
+            <div class="image-container">
+                <img src="svg-v9.svg" alt="svg-v9" />
+            </div>
+            <div class="info">
+                <div class="variant-name">SVG-V9</div>
+                <div class="details">
+                    <div class="stat">14928.50 KB</div>
+                    <div class="stat">38.41s</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="variant" onclick="showComparison('svg-v11.svg', 'svg-v11')" data-index="10">
+            <div class="image-container">
+                <img src="svg-v11.svg" alt="svg-v11" />
+            </div>
+            <div class="info">
+                <div class="variant-name">SVG-V11</div>
+                <div class="details">
+                    <div class="stat">93.85 KB</div>
+                    <div class="stat">0.24s</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="variant" onclick="showComparison('svg-v12.svg', 'svg-v12')" data-index="11">
+            <div class="image-container">
+                <img src="svg-v12.svg" alt="svg-v12" />
+            </div>
+            <div class="info">
+                <div class="variant-name">SVG-V12</div>
+                <div class="details">
+                    <div class="stat">93.67 KB</div>
+                    <div class="stat">0.00s</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="variant" onclick="showComparison('svg-v13.svg', 'svg-v13')" data-index="12">
+            <div class="image-container">
+                <img src="svg-v13.svg" alt="svg-v13" />
+            </div>
+            <div class="info">
+                <div class="variant-name">SVG-V13</div>
+                <div class="details">
+                    <div class="stat">109.70 KB</div>
+                    <div class="stat">0.34s</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="variant" onclick="showComparison('svg-v14.svg', 'svg-v14')" data-index="13">
+            <div class="image-container">
+                <img src="svg-v14.svg" alt="svg-v14" />
+            </div>
+            <div class="info">
+                <div class="variant-name">SVG-V14</div>
+                <div class="details">
+                    <div class="stat">5231.71 KB</div>
+                    <div class="stat">32.19s</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="variant" onclick="showComparison('svg-v15.svg', 'svg-v15')" data-index="14">
+            <div class="image-container">
+                <img src="svg-v15.svg" alt="svg-v15" />
+            </div>
+            <div class="info">
+                <div class="variant-name">SVG-V15</div>
+                <div class="details">
+                    <div class="stat">1632.30 KB</div>
+                    <div class="stat">2.57s</div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    
+    <div id="modal" class="modal" onclick="closeModal()">
+        <div class="modal-content">
+            <div class="comparison-container" onclick="event.stopPropagation()">
+                <div class="comparison-image">
+                    <img id="original-img" src="original.png" alt="Original" />
+                    <div class="comparison-label">ORIGINAL</div>
+                </div>
+                <div class="comparison-image">
+                    <img id="variant-img" src="" alt="Variant" />
+                    <div class="comparison-label" id="variant-label"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function showComparison(fileName, variantName) {
+            document.getElementById('variant-img').src = fileName;
+            document.getElementById('variant-label').textContent = variantName.toUpperCase();
+            document.getElementById('modal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeModal() {
+            document.getElementById('modal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+        
+        // Close modal on escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Vectorization Results</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .result-link {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            padding: 20px;
+            text-align: center;
+            text-decoration: none;
+            color: #333;
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: block;
+        }
+        .result-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        .result-name {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        .result-preview {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .result-preview img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        .view-text {
+            color: #007aff;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>All Vectorization Results</h1>
+    <div class="grid">
+        <a href="1980s-comic/index.html" class="result-link">
+            <div class="result-preview">
+                <img src="1980s-comic/original.png" alt="1980s-comic">
+            </div>
+            <div class="result-name">1980s-comic</div>
+            <div class="view-text">View Results →</div>
+        </a>
+        <a href="adult-coloring-book/index.html" class="result-link">
+            <div class="result-preview">
+                <img src="adult-coloring-book/original.png" alt="adult-coloring-book">
+            </div>
+            <div class="result-name">adult-coloring-book</div>
+            <div class="view-text">View Results →</div>
+        </a>
+        <a href="artist-illustration/index.html" class="result-link">
+            <div class="result-preview">
+                <img src="artist-illustration/original.png" alt="artist-illustration">
+            </div>
+            <div class="result-name">artist-illustration</div>
+            <div class="view-text">View Results →</div>
+        </a>
+        <a href="blueprint/index.html" class="result-link">
+            <div class="result-preview">
+                <img src="blueprint/original.png" alt="blueprint">
+            </div>
+            <div class="result-name">blueprint</div>
+            <div class="view-text">View Results →</div>
+        </a>
+        <a href="bold-block-print-aesthetic/index.html" class="result-link">
+            <div class="result-preview">
+                <img src="bold-block-print-aesthetic/original.png" alt="bold-block-print-aesthetic">
+            </div>
+            <div class="result-name">bold-block-print-aesthetic</div>
+            <div class="view-text">View Results →</div>
+        </a>
+        <a href="cell-shader/index.html" class="result-link">
+            <div class="result-preview">
+                <img src="cell-shader/original.png" alt="cell-shader">
+            </div>
+            <div class="result-name">cell-shader</div>
+            <div class="view-text">View Results →</div>
+        </a>
+        <a href="cheerful-collage/index.html" class="result-link">
+            <div class="result-preview">
+                <img src="cheerful-collage/original.png" alt="cheerful-collage">
+            </div>
+            <div class="result-name">cheerful-collage</div>
+            <div class="view-text">View Results →</div>
+        </a>
+        <a href="chunky-isometric/index.html" class="result-link">
+            <div class="result-preview">
+                <img src="chunky-isometric/original.png" alt="chunky-isometric">
+            </div>
+            <div class="result-name">chunky-isometric</div>
+            <div class="view-text">View Results →</div>
+        </a>
+        <a href="colorful-icons/index.html" class="result-link">
+            <div class="result-preview">
+                <img src="colorful-icons/original.png" alt="colorful-icons">
+            </div>
+            <div class="result-name">colorful-icons</div>
+            <div class="view-text">View Results →</div>
+        </a>
+        <a href="contemporary-character-design/index.html" class="result-link">
+            <div class="result-preview">
+                <img src="contemporary-character-design/original.png" alt="contemporary-character-design">
+            </div>
+            <div class="result-name">contemporary-character-design</div>
+            <div class="view-text">View Results →</div>
+        </a>
+        <a href="cubist-influenced/index.html" class="result-link">
+            <div class="result-preview">
+                <img src="cubist-influenced/original.png" alt="cubist-influenced">
+            </div>
+            <div class="result-name">cubist-influenced</div>
+            <div class="view-text">View Results →</div>
+        </a>
+        <a href="deconstructed-cubist/index.html" class="result-link">
+            <div class="result-preview">
+                <img src="deconstructed-cubist/original.png" alt="deconstructed-cubist">
+            </div>
+            <div class="result-name">deconstructed-cubist</div>
+            <div class="view-text">View Results →</div>
+        </a>
+        <a href="digital-editorial/index.html" class="result-link">
+            <div class="result-preview">
+                <img src="digital-editorial/original.png" alt="digital-editorial">
+            </div>
+            <div class="result-name">digital-editorial</div>
+            <div class="view-text">View Results →</div>
+        </a>
+        <a href="digital-neon-noir/index.html" class="result-link">
+            <div class="result-preview">
+                <img src="digital-neon-noir/original.png" alt="digital-neon-noir">
+            </div>
+            <div class="result-name">digital-neon-noir</div>
+            <div class="view-text">View Results →</div>
+        </a>
+        <a href="eco-sketch/index.html" class="result-link">
+            <div class="result-preview">
+                <img src="eco-sketch/original.png" alt="eco-sketch">
+            </div>
+            <div class="result-name">eco-sketch</div>
+            <div class="view-text">View Results →</div>
+        </a>
+        <a href="editorial-line-art/index.html" class="result-link">
+            <div class="result-preview">
+                <img src="editorial-line-art/original.png" alt="editorial-line-art">
+            </div>
+            <div class="result-name">editorial-line-art</div>
+            <div class="view-text">View Results →</div>
+        </a>
+        <a href="flowing-line-art/index.html" class="result-link">
+            <div class="result-preview">
+                <img src="flowing-line-art/original.png" alt="flowing-line-art">
+            </div>
+            <div class="result-name">flowing-line-art</div>
+            <div class="view-text">View Results →</div>
+        </a>
+        <a href="friendly-flat-icons/index.html" class="result-link">
+            <div class="result-preview">
+                <img src="friendly-flat-icons/original.png" alt="friendly-flat-icons">
+            </div>
+            <div class="result-name">friendly-flat-icons</div>
+            <div class="view-text">View Results →</div>
+        </a>
+        <a href="game-icon/index.html" class="result-link">
+            <div class="result-preview">
+                <img src="game-icon/original.png" alt="game-icon">
+            </div>
+            <div class="result-name">game-icon</div>
+            <div class="view-text">View Results →</div>
+        </a>
+        <a href="graphic-novel/index.html" class="result-link">
+            <div class="result-preview">
+                <img src="graphic-novel/original.png" alt="graphic-novel">
+            </div>
+            <div class="result-name">graphic-novel</div>
+            <div class="view-text">View Results →</div>
+        </a>
+        <a href="hand-drawn/index.html" class="result-link">
+            <div class="result-preview">
+                <img src="hand-drawn/original.png" alt="hand-drawn">
+            </div>
+            <div class="result-name">hand-drawn</div>
+            <div class="view-text">View Results →</div>
+        </a>
+        <a href="inclusive-editorial/index.html" class="result-link">
+            <div class="result-preview">
+                <img src="inclusive-editorial/original.png" alt="inclusive-editorial">
+            </div>
+            <div class="result-name">inclusive-editorial</div>
+            <div class="view-text">View Results →</div>
+        </a>
+        <a href="lifestyle-illustrations/index.html" class="result-link">
+            <div class="result-preview">
+                <img src="lifestyle-illustrations/original.png" alt="lifestyle-illustrations">
+            </div>
+            <div class="result-name">lifestyle-illustrations</div>
+            <div class="view-text">View Results →</div>
+        </a>
+        <a href="linotype/index.html" class="result-link">
+            <div class="result-preview">
+                <img src="linotype/original.png" alt="linotype">
+            </div>
+            <div class="result-name">linotype</div>
+            <div class="view-text">View Results →</div>
+        </a>
+        <a href="lo-fi-comic/index.html" class="result-link">
+            <div class="result-preview">
+                <img src="lo-fi-comic/original.png" alt="lo-fi-comic">
+            </div>
+            <div class="result-name">lo-fi-comic</div>
+            <div class="view-text">View Results →</div>
+        </a>
+        <a href="microbold/index.html" class="result-link">
+            <div class="result-preview">
+                <img src="microbold/original.png" alt="microbold">
+            </div>
+            <div class="result-name">microbold</div>
+            <div class="view-text">View Results →</div>
+        </a>
+        <a href="mid-century-monochrome/index.html" class="result-link">
+            <div class="result-preview">
+                <img src="mid-century-monochrome/original.png" alt="mid-century-monochrome">
+            </div>
+            <div class="result-name">mid-century-monochrome</div>
+            <div class="view-text">View Results →</div>
+        </a>
+        <a href="modern-folk/index.html" class="result-link">
+            <div class="result-preview">
+                <img src="modern-folk/original.png" alt="modern-folk">
+            </div>
+            <div class="result-name">modern-folk</div>
+            <div class="view-text">View Results →</div>
+        </a>
+        <a href="modern-memphis/index.html" class="result-link">
+            <div class="result-preview">
+                <img src="modern-memphis/original.png" alt="modern-memphis">
+            </div>
+            <div class="result-name">modern-memphis</div>
+            <div class="view-text">View Results →</div>
+        </a>
+        <a href="neon-vibes/index.html" class="result-link">
+            <div class="result-preview">
+                <img src="neon-vibes/original.png" alt="neon-vibes">
+            </div>
+            <div class="result-name">neon-vibes</div>
+            <div class="view-text">View Results →</div>
+        </a>
+        <a href="organic-line-and-blob/index.html" class="result-link">
+            <div class="result-preview">
+                <img src="organic-line-and-blob/original.png" alt="organic-line-and-blob">
+            </div>
+            <div class="result-name">organic-line-and-blob</div>
+            <div class="view-text">View Results →</div>
+        </a>
+        <a href="pastel-line-and-fill/index.html" class="result-link">
+            <div class="result-preview">
+                <img src="pastel-line-and-fill/original.png" alt="pastel-line-and-fill">
+            </div>
+            <div class="result-name">pastel-line-and-fill</div>
+            <div class="view-text">View Results →</div>
+        </a>
+        <a href="playful-line-art/index.html" class="result-link">
+            <div class="result-preview">
+                <img src="playful-line-art/original.png" alt="playful-line-art">
+            </div>
+            <div class="result-name">playful-line-art</div>
+            <div class="view-text">View Results →</div>
+        </a>
+        <a href="playful-sketch/index.html" class="result-link">
+            <div class="result-preview">
+                <img src="playful-sketch/original.png" alt="playful-sketch">
+            </div>
+            <div class="result-name">playful-sketch</div>
+            <div class="view-text">View Results →</div>
+        </a>
+        <a href="serene-blueprint/index.html" class="result-link">
+            <div class="result-preview">
+                <img src="serene-blueprint/original.png" alt="serene-blueprint">
+            </div>
+            <div class="result-name">serene-blueprint</div>
+            <div class="view-text">View Results →</div>
+        </a>
+        <a href="simple-ink-doodles/index.html" class="result-link">
+            <div class="result-preview">
+                <img src="simple-ink-doodles/original.png" alt="simple-ink-doodles">
+            </div>
+            <div class="result-name">simple-ink-doodles</div>
+            <div class="view-text">View Results →</div>
+        </a>
+        <a href="soft-round-navy/index.html" class="result-link">
+            <div class="result-preview">
+                <img src="soft-round-navy/original.png" alt="soft-round-navy">
+            </div>
+            <div class="result-name">soft-round-navy</div>
+            <div class="view-text">View Results →</div>
+        </a>
+        <a href="soft-warm-illustrations/index.html" class="result-link">
+            <div class="result-preview">
+                <img src="soft-warm-illustrations/original.png" alt="soft-warm-illustrations">
+            </div>
+            <div class="result-name">soft-warm-illustrations</div>
+            <div class="view-text">View Results →</div>
+        </a>
+        <a href="sticker-pack/index.html" class="result-link">
+            <div class="result-preview">
+                <img src="sticker-pack/original.png" alt="sticker-pack">
+            </div>
+            <div class="result-name">sticker-pack</div>
+            <div class="view-text">View Results →</div>
+        </a>
+        <a href="topical-retro/index.html" class="result-link">
+            <div class="result-preview">
+                <img src="topical-retro/original.png" alt="topical-retro">
+            </div>
+            <div class="result-name">topical-retro</div>
+            <div class="view-text">View Results →</div>
+        </a>
+        <a href="tshirt-print/index.html" class="result-link">
+            <div class="result-preview">
+                <img src="tshirt-print/original.png" alt="tshirt-print">
+            </div>
+            <div class="result-name">tshirt-print</div>
+            <div class="view-text">View Results →</div>
+        </a>
+        <a href="understated-whimsy/index.html" class="result-link">
+            <div class="result-preview">
+                <img src="understated-whimsy/original.png" alt="understated-whimsy">
+            </div>
+            <div class="result-name">understated-whimsy</div>
+            <div class="view-text">View Results →</div>
+        </a>
+        <a href="vaporwave-gradients/index.html" class="result-link">
+            <div class="result-preview">
+                <img src="vaporwave-gradients/original.png" alt="vaporwave-gradients">
+            </div>
+            <div class="result-name">vaporwave-gradients</div>
+            <div class="view-text">View Results →</div>
+        </a>
+        <a href="vibrant-outline-pop/index.html" class="result-link">
+            <div class="result-preview">
+                <img src="vibrant-outline-pop/original.png" alt="vibrant-outline-pop">
+            </div>
+            <div class="result-name">vibrant-outline-pop</div>
+            <div class="view-text">View Results →</div>
+        </a>
+        <a href="watercolor-wash/index.html" class="result-link">
+            <div class="result-preview">
+                <img src="watercolor-wash/original.png" alt="watercolor-wash">
+            </div>
+            <div class="result-name">watercolor-wash</div>
+            <div class="view-text">View Results →</div>
+        </a>
+        <a href="y2k-pop-shine/index.html" class="result-link">
+            <div class="result-preview">
+                <img src="y2k-pop-shine/original.png" alt="y2k-pop-shine">
+            </div>
+            <div class="result-name">y2k-pop-shine</div>
+            <div class="view-text">View Results →</div>
+        </a>
+    </div>
+</body>
+</html>
